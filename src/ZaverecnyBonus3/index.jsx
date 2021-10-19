@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useCasVSekundach } from './hodiny'
 
 // Zadání:
@@ -7,10 +7,14 @@ import { useCasVSekundach } from './hodiny'
 
 const ZaverecnyBonus3 = () => {
 	const casVSekundach = useCasVSekundach()
+	const [hodiny, setHodiny] = useState(Math.floor(casVSekundach / 60 / 60));
+	const [minuty, setMinuty] = useState(Math.floor(casVSekundach / 60) - ((Math.floor(casVSekundach / 60 / 60)) * 60));
+	const [vteriny, setVteriny] = useState(casVSekundach % 60)
 
 	return (
 		<>
 			Čas právě teď: <b>{casVSekundach}</b>
+			čas v hodinách: {hodiny} : {minuty} : {vteriny}
 		</>
 	)
 }

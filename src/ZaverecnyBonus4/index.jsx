@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Zadání:
 // Pomocí dvou stavových proměnných s výchozí hodnotou 0,
@@ -6,10 +6,22 @@ import React from 'react'
 // vypiš do `<output></output>` jejich součet.
 
 const ZaverecnyBonus4 = () => {
+	const [nb, setNb] = useState();
+	const handleChange = ({target}) => {
+		const nb1 = target.value;
+		setNb(Number(nb1))
+	}
+
+	const [nbInput2, setNbInpu2] = useState();
+	const handleSecondChange = ({target}) => {
+		const nb2 = target.value;
+		setNbInpu2(Number(nb2));
+	}
+
 	return (
 		<>
-			<input type="number" defaultValue="0" /> +{' '}
-			<input type="number" defaultValue="0" /> = <output>0</output>
+			<input type="number" defaultValue="0" onChange={handleChange}/> +{' '}
+			<input type="number" defaultValue="0" onChange={handleSecondChange} /> = <output>{nb + nbInput2}</output>
 		</>
 	)
 }

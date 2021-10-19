@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Děláš počítadlo, kde jde tlačítky zvětšovat nebo zmenšovat hodnota.
 
@@ -8,20 +8,40 @@ import React from 'react'
 
 // Zadání 2:
 // Nastav, aby jednotlivá tlačítka měnila stav `cislo`
-// Tlačíítko +1 aby přičítalo jedničku, +5 přičítalo pětku,
+// Tlačítko +1 aby přičítalo jedničku, +5 přičítalo pětku,
 // tlačítko Vynulovat nastavovalo číslo na nulu apod.
 
 const Pocitadlo = () => {
-	const cislo = 0
+	const [cislo, setCislo] = useState(0);
+	const odecistPet = () => {
+		setCislo(cislo - 5);
+	}
+
+	const odecistJedna = () => {
+		setCislo(cislo - 1);
+	}
+
+	const vynulovat = () => {
+		setCislo(0);
+	}
+
+	const pricistJedna = () => {
+		setCislo(cislo + 1);
+	}
+
+	const pricistPet = () => {
+		setCislo(cislo + 5);
+	}
+
 
 	return (
 		<>
 			<h3>Počítadlo: {cislo}</h3>
-			<button>-5</button>
-			<button>-1</button>
-			<button>Vynulovat</button>
-			<button>+1</button>
-			<button>+5</button>
+			<button onClick={odecistPet}>-5</button>
+			<button onClick={odecistJedna}>-1</button>
+			<button onClick={vynulovat}>Vynulovat</button>
+			<button onClick={pricistJedna}>+1</button>
+			<button onClick={pricistPet}>+5</button>
 		</>
 	)
 }

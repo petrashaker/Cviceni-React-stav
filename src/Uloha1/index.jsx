@@ -4,7 +4,7 @@ import offUrl from './off.svg'
 import onUrl from './on.svg'
 import './zarovka.css'
 
-// Tvoříš komponentu, ve kteréé jde tlačítkem rozsvítit nebo zhasnout žárovka.
+// Tvoříš komponentu, ve které jde tlačítkem rozsvítit nebo zhasnout žárovka.
 
 // Zadání 1:
 // Po kliknutí na tlačítko `zapnout` zavolej `setJeZapnuta(true)`.
@@ -16,7 +16,14 @@ import './zarovka.css'
 // Neboj se a ptej se kouče, když nebudeš vědět.
 
 const Uloha1 = () => {
-	const [jeZapnuta, setJeZapnuta] = useState(false)
+	const [jeZapnuta, setJeZapnuta] = useState(false);
+	const zapnout = () => {
+		setJeZapnuta(true);
+	}
+	
+	const vypnout = () => {
+		setJeZapnuta(false);
+	}
 
 	return (
 		<div className="zarovka">
@@ -28,10 +35,10 @@ const Uloha1 = () => {
 				className="zarovka__ikona"
 			/>
 			<div className="zarovka__tlacitka">
-				<button className="zarovka__tlacitko" disabled={jeZapnuta}>
+				<button className="zarovka__tlacitko" disabled={jeZapnuta} onClick={zapnout}>
 					zapnout
 				</button>
-				<button className="zarovka__tlacitko" disabled={!jeZapnuta}>
+				<button className="zarovka__tlacitko" disabled={!jeZapnuta} onClick={vypnout}>
 					vypnout
 				</button>
 			</div>
