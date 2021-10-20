@@ -32,6 +32,7 @@ https://source.unsplash.com/YmATDIFsCmQ/880x500
 // Nastav tlačítkům atribut `disabled`, pokud v jejich směru už není
 // žádný obrázek.
 
+// Tak u te Ulohy 4: Tam si staci drzet v useState jenom index (tzn. cislo 0 - 4 v tomhle pripade). To pak jenom menis a v obrzku jenom pristoupis do pole <img src={obrazky[index]} />
 
 const Uloha4 = () => {
 	const obrazky = ["https://source.unsplash.com/WLUHO9A_xik/880x500", 
@@ -39,8 +40,46 @@ const Uloha4 = () => {
 		"https://source.unsplash.com/kTxL6le0Wgk/880x500", 
 		"https://source.unsplash.com/7go5UASxmDY/880x500", 
 		"https://source.unsplash.com/YmATDIFsCmQ/880x500"]
+	// const i = [0, 1, 2, 3, 4]
+	
+	// NEFUNGUJE scr="0"
+	// const [obrazek, setObrazek] = useState([0]);
 
+	// NEFUNGUJE scr="0"
+	// const [obrazek, setObrazek] = useState(0);
+
+	//FUNGUJE, objeví se první obrázek se správným src
 	const [obrazek, setObrazek] = useState(obrazky[0]);
+
+	// const [obrazek, setObrazek] = useState(obrazek[i]);
+	// 	const predchozi = () => {
+	// 	for(let y = 0; y <= obrazky.length; y++) {
+	// 		setObrazek(obrazek[y])
+	// 	}
+	// }
+
+	//NEFUNGUJE, přejde pouze o jeden obrázek a rovnou na index 4
+	// const predchozi = () => {
+	// 	obrazky.map(obrazek => setObrazek(obrazek))
+	// }
+	const nasledujici = () => {
+		obrazky.map(obrazek => setObrazek(obrazek))
+	}
+
+	//NEFUNGUJE, přejde na src="5" 
+	// nefunguje ani setObrazek(1) bez hranatých závorek, ani setObrazek(obrazky[i]), setObrazek(obrazek[i])
+	// const predchozi = () => {
+	// 	for(let i = 0; i <= obrazky.length; i++) {
+	// 		setObrazek([i])
+	// 	}
+	// }
+
+	//FUNGUJE, ale pouze ten konkrétní obrázek
+	const predchozi = () => {
+		setObrazek(obrazky[2])
+	}
+
+	// 
 
 	const vybranyObrazek = obrazky.map(obrazek => {
 		return (
@@ -48,23 +87,7 @@ const Uloha4 = () => {
 		)
 	})
 
-	// const predchozi = () => {
-	// 	for(let i = 0; i <= obrazky.length; i++) {
-	// 		setObrazek(obrazek[i]);
-	// 		console.log(obrazky[i]);
-	// 		// console.log(obrazky.length)
-	// 		// console.log(obrazky[2])
-	// 	}
-	// }
-	// console.log(predchozi);
 
-	const predchozi = () => {
-		obrazky.map(obrazek => setObrazek(obrazek))
-	}
-
-	// const nasledujici = () => {
-	// 	obrazky.map(obrazek => setObrazek(obrazek))
-	// }
 
 	return (
 		<div className="carousel">
@@ -75,11 +98,12 @@ const Uloha4 = () => {
 				<img
 					className="carousel__image"
 					src={obrazek}
+					// src={obrazek[i]}
 					alt=""
 				/>
 				{/* {vybranyObrazek} */}
 			</div>
-			<button className="carousel__dalsi" aria-label="další" onClick={predchozi}>
+			<button className="carousel__dalsi" aria-label="další" onClick={nasledujici}>
 				→
 			</button>
 		</div>

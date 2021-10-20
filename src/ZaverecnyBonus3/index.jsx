@@ -14,7 +14,7 @@ const ZaverecnyBonus3 = () => {
 	return (
 		<>
 			Čas právě teď: <b>{casVSekundach}</b>
-			čas v hodinách: {hodiny} : {minuty} : {vteriny}
+			čas v hodinách: {hodiny.toString().padStart(2, '0')} : {minuty.toString().padStart(2, '0')} : {vteriny.toString().padStart(2, '0')}
 		</>
 	)
 }

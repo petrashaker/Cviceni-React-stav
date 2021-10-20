@@ -23,9 +23,9 @@ const UkazatelPokroku = ({ barva, stav }) => {
 	const [state, setState] = useState(stav)
 
 	const handleClick = () => {
-		setState(state + '10%');
-		if(state > 100) {
-			setState(100);
+		setState(state + 10 );
+		if(state >= '100') {
+			setState('100');
 		}
 		console.log(state)
 	}
@@ -37,8 +37,7 @@ const UkazatelPokroku = ({ barva, stav }) => {
 				<div
 					className="ukazatel-uspechu__postup"
 					style={{
-						width: stav,
-						// width: `${stav}%`,
+						width: state + '%',
 						backgroundColor: barva
 					}}
 				></div>
@@ -51,9 +50,9 @@ const UkazatelPokroku = ({ barva, stav }) => {
 const Uloha7 = () => {
 	return (
 		<>
-			<UkazatelPokroku barva="blue" stav='10%'/>
-			<UkazatelPokroku barva="green" stav='20%'/>
-			<UkazatelPokroku barva="purple" stav='40%' />
+			<UkazatelPokroku barva="blue" stav={10} />
+			<UkazatelPokroku barva="green" stav={20} />
+			<UkazatelPokroku barva="purple" stav= {40} />
 		</>
 	)
 }
