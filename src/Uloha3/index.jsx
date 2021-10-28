@@ -28,10 +28,10 @@ const diceUrls = [dice1Url, dice2Url, dice3Url, dice4Url, dice5Url, dice6Url]
 const Uloha3 = () => {
 	const [cisloNaKostce, setCisloNaKostce] = useState(1);/* jedna až šest */
 	const handleClick = () => {
-		setCisloNaKostce(cisloNaKostce + 1);
-		if(cisloNaKostce === 6) {
-			setCisloNaKostce(1);
-		}
+		// setCisloNaKostce(cisloNaKostce + 1);
+		// if(cisloNaKostce === 6) {
+		// 	setCisloNaKostce(1);
+		setCisloNaKostce(cisloNaKostce === 6 ? 1 : (cisloNaKostce + 1))
 	}
 
 	return (

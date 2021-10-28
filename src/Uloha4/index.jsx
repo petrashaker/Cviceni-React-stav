@@ -38,7 +38,6 @@ const Uloha4 = () => {
 		"https://source.unsplash.com/kTxL6le0Wgk/880x500", 
 		"https://source.unsplash.com/7go5UASxmDY/880x500", 
 		"https://source.unsplash.com/YmATDIFsCmQ/880x500"]
-	console.log(obrazky.length)
 
 	const [index, setIndex] = useState(0);
 
@@ -48,12 +47,11 @@ const Uloha4 = () => {
 
 	const predchozi = () => {
 		setIndex(index - 1)
-	
 	}
 
 	return (
 		<div className="carousel">
-			<button className="carousel__predchozi" aria-label="předchozí" onClick={predchozi} disabled={ index <=0 ? true : false } >
+			<button className="carousel__predchozi" aria-label="předchozí" onClick={predchozi} disabled={ index === 0 } >
 				←
 			</button>
 			<div className="carousel__media">
@@ -64,7 +62,7 @@ const Uloha4 = () => {
 				/>
 
 			</div>
-			<button className="carousel__dalsi" aria-label="další" onClick={nasledujici} disabled={index >= (obrazky.length -1) ? true : false }>
+			<button className="carousel__dalsi" aria-label="další" onClick={nasledujici} disabled={index === (obrazky.length -1)}>
 				→
 			</button>
 		</div>

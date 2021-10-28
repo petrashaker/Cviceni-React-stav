@@ -13,13 +13,13 @@ import React, { useState } from 'react'
 
 const Pocitadlo = () => {
 	const [cislo, setCislo] = useState(0);
-	const odecistPet = () => {
-		setCislo(cislo - 5);
-	}
+	// const odecistPet = () => {
+	// 	setCislo(cislo - 5);
+	// }
 
-	const odecistJedna = () => {
-		setCislo(cislo - 1);
-	}
+	// const odecistJedna = () => {
+	// 	setCislo(cislo - 1);
+	// }
 
 	const vynulovat = () => {
 		setCislo(0);
@@ -37,8 +37,10 @@ const Pocitadlo = () => {
 	return (
 		<>
 			<h3>Počítadlo: {cislo}</h3>
-			<button onClick={odecistPet}>-5</button>
-			<button onClick={odecistJedna}>-1</button>
+			<button onClick={() => setCislo(cislo  - 5)}>-5</button>
+			{/* <button onClick={odecistPet}>-5</button> */}
+			<button onClick={() => setCislo(cislo - 1)}>-1</button>
+			{/* <button onClick={odecistJedna}>-1</button> */}
 			<button onClick={vynulovat}>Vynulovat</button>
 			<button onClick={pricistJedna}>+1</button>
 			<button onClick={pricistPet}>+5</button>
