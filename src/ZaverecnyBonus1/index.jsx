@@ -19,20 +19,20 @@ import React, { useState } from 'react'
 
 const ZaverecnyBonus1 = () => {
 	const [text, setText] = useState("");
-	const handleChange = ({target}) => {
-		setText(target.value);
-	}
+	// const handleChange = ({target}) => {
+	// 	setText(target.value);
+	// }
 
 	return (
 		<>
 			<label>
-				Napiš něco: <input onChange={handleChange}/>
+				Napiš něco: <input onChange={(event) => setText(event.target.value)}/>
 			</label>
 			<p>
 				Do políčka výše uživatel napsal: <b>{text}</b>
 			</p>
 			<p>Počet znaků: {text.length}</p>
-			{text.length < 8 ? <p>Jako heslo by text neobstál.</p> : null }
+			{text.length < 8 && <p>Jako heslo by text neobstál.</p>}
 		</>
 	)
 }

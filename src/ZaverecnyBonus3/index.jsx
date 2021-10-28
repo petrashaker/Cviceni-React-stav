@@ -7,17 +7,31 @@ import { useCasVSekundach } from './hodiny'
 
 const ZaverecnyBonus3 = () => {
 	const casVSekundach = useCasVSekundach()
-	const [hodiny, setHodiny] = useState(Math.floor(casVSekundach / 60 / 60));
-	const [minuty, setMinuty] = useState(Math.floor(casVSekundach / 60) - ((Math.floor(casVSekundach / 60 / 60)) * 60));
-	const [vteriny, setVteriny] = useState(casVSekundach % 60)
+	const hodiny = Math.floor(casVSekundach / 60 / 60);
+	const minuty = Math.floor((casVSekundach / 60) % 60).toString().padStart(2, '0');
+	const vteriny = (casVSekundach % 60).toString().padStart(2, '0');
 
 	return (
 		<>
 			Čas právě teď: <b>{casVSekundach}</b>
 			<br />
-			Čas v hodinách: {hodiny.toString().padStart(2, '0')} : {minuty.toString().padStart(2, '0')} : {vteriny.toString().padStart(2, '0')}
+			Čas v hodinách: {hodiny} : {minuty} : {vteriny}
 		</>
 	)
 }
+// const ZaverecnyBonus3 = () => {
+// 	const casVSekundach = useCasVSekundach()
+// 	const [hodiny, setHodiny] = useState(Math.floor(casVSekundach / 60 / 60));
+// 	const [minuty, setMinuty] = useState(Math.floor(casVSekundach / 60) - ((Math.floor(casVSekundach / 60 / 60)) * 60));
+// 	const [vteriny, setVteriny] = useState(casVSekundach % 60)
+
+// 	return (
+// 		<>
+// 			Čas právě teď: <b>{casVSekundach}</b>
+// 			<br />
+// 			Čas v hodinách: {hodiny.toString().padStart(2, '0')} : {minuty.toString().padStart(2, '0')} : {vteriny.toString().padStart(2, '0')}
+// 		</>
+// 	)
+// }
 
 export default ZaverecnyBonus3;

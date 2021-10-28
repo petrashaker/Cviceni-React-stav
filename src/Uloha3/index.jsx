@@ -40,7 +40,6 @@ const Uloha3 = () => {
 				src={diceUrls[cisloNaKostce - 1]} /* indexy se číslují od nuly */
 				width={60}
 				height={60}
-				// alt="Kostka s číslem @TODO"
 				alt={cisloNaKostce}
 				className="kostka__ikona"
 			/>

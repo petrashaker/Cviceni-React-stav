@@ -20,18 +20,21 @@ import './hamburger.css'
 const Uloha5 = () => {
 	const [otevreno, setOtevreno] = useState(false);
 
-	const otevrit = () => {
-		setOtevreno(otevreno === true ? false : true);
-	}
+	// const otevrit = () => {
+	// 	setOtevreno(otevreno === true ? false : true);
+	// }
 
 	return (
 		<>
-			<button className={otevreno ? "hamburger--otevrene hamburger" : "hamburger"} aria-label="menu" onClick={otevrit}>
+			<button 
+				className={otevreno ? "hamburger--otevrene hamburger" : "hamburger"} 
+				aria-label="menu" 
+				onClick={() => setOtevreno(!otevreno)}>
 				<span></span>
 				<span></span>
 				<span></span>
 			</button>
-		{otevreno ? <ul>
+		{otevreno && <ul>
 				<li>
 					<a href="#o-nas">O nás</a>
 				</li>
@@ -44,7 +47,7 @@ const Uloha5 = () => {
 				<li>
 					<a href="#cenik">Ceník</a>
 				</li>
-			</ul> : <></>}
+			</ul>}
 		</>
 	)
 }

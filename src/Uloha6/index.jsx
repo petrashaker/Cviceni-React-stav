@@ -18,17 +18,12 @@ import './ukol.css'
 
 const Ukol = ({ ukol }) => {
 	const [state, setState] = useState(false);
-	const [showButton, setShowButton] = useState(true);
-	const handleClick = () => {
-		setState(true);
-		setShowButton(false);
-	}
 
 	return (
 		<ul>
 				<li className={state ? "ukol ukol--splnen" : "ukol"} >
 					<span className="ukol__nazev">{ukol}</span>
-					{showButton ? <button className="ukol__akce" onClick={handleClick}>splnit</button> : null}
+					{!state && <button className="ukol__akce" onClick={() => setState(true)}>splnit</button>}
 				</li>
 		</ul>
 	)
@@ -45,3 +40,34 @@ const Uloha6 = () => {
 }
 
 export default Uloha6;
+
+// verze 2 - složitější
+// const Ukol = ({ ukol }) => {
+// 	const [state, setState] = useState(false);
+// 	const [showButton, setShowButton] = useState(true);
+// 	const handleClick = () => {
+// 		setState(true);
+// 		setShowButton(false);
+// 	}
+
+// 	return (
+// 		<ul>
+// 				<li className={state ? "ukol ukol--splnen" : "ukol"} >
+// 					<span className="ukol__nazev">{ukol}</span>
+// 					{showButton ? <button className="ukol__akce" onClick={handleClick}>splnit</button> : null}
+// 				</li>
+// 		</ul>
+// 	)
+// }
+
+// const Uloha6 = () => {
+// 	const ukoly = ['Zamést', 'Pověsit prádlo', 'Umýt okna', 'Vynést koš']
+
+// 	return (
+// 		<>
+// 		{ukoly.map(ukol => <Ukol ukol = {ukol} key={ukol}/>)}
+// 		</>
+// 	)
+// }
+
+// export default Uloha6;

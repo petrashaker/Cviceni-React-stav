@@ -15,12 +15,25 @@ import React, { useState } from 'react'
 
 const Uloha8 = () => {
 	const [prsi, setPrsi] = useState('možná');
+	//verze 1
+	// const handleClick = () => {
+	// 	setPrsi(prsi === 'možná' ? 'ano' : 'ne' )
+	// 	if(prsi === 'ne') {
+	// 		setPrsi('možná')
+	// 	}
+	// }
+
+	//verze 2
 	const handleClick = () => {
-		setPrsi(prsi === 'možná' ? 'ano' : 'ne' )
-		if(prsi === 'ne') {
+		if(prsi === 'možná') {
+			setPrsi('ano')
+		} else if (prsi === 'ano') {
+			setPrsi('ne')
+		} else {
 			setPrsi('možná')
 		}
 	}
+
 	return (
 		<>
 			<h3>Prší v Brně: {prsi}</h3>

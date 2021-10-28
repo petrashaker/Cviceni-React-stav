@@ -18,13 +18,13 @@ import penizeUrl from './penize.svg'
 const Kasicka = ({ pocatecniStav }) => {
 	const [state, setState] = useState(pocatecniStav);
 
-	const pridejtPet = () => {
-		setState(state + 5);
-	}
+	// const pridejtPet = () => {
+	// 	setState(state + 5);
+	// }
 
-	const vysipKasicku = () => {
-		setState(0);
-	}
+	// const vysipKasicku = () => {
+	// 	setState(0);
+	// }
 
 	return (
 		<div className="kasicka">
@@ -32,7 +32,8 @@ const Kasicka = ({ pocatecniStav }) => {
 				<img src={penizeUrl} width={24} height={24} alt="" /> Peníze v kasičce:{' '}
 				{state}
 			</h3>
-			<button onClick={pridejtPet}>přihodit pětikorunu</button> <button onClick={vysipKasicku}>vysypat kasičku</button>
+			<button onClick={() => setState(state + 5)}>přihodit pětikorunu</button> 
+			<button onClick={() => setState(0)}>vysypat kasičku</button>
 		</div>
 	)
 }

@@ -18,18 +18,9 @@ import './ukazatel-uspechu.css'
 // Zadání 4:
 // Nastav prvku `ukazatel-uspechu__postup` šířku podle stavové proměnné.
 
-const UkazatelPokroku = ({ barva, stav }) => {
-	const [zmenaBarvy, setZmenaBarvy] = useState(barva);
-	const [state, setState] = useState(stav)
 
-	const handleClick = () => {
-		setState(state + 10 );
-		if(state >= '100') {
-			setState('100');
-		}
-		console.log(state)
-	}
-	
+const UkazatelPokroku = ({ barva, stav }) => {
+	const [state, setState] = useState(stav)
 
 	return (
 		<div className="ukazatel-uspechu">
@@ -37,24 +28,66 @@ const UkazatelPokroku = ({ barva, stav }) => {
 				<div
 					className="ukazatel-uspechu__postup"
 					style={{
-						width: state + '%',
-						backgroundColor: barva
+						width: `${state}%`,
+						backgroundColor: barva,
 					}}
 				></div>
 			</div>
-			<button onClick={handleClick}>postoupit o 10 %</button>
+			<button onClick={() => setState(Math.min(100, state + 10))}>
+				postoupit o 10 %
+			</button>
 		</div>
 	)
 }
 
-const Uloha7 = () => {
+export const Uloha7 = () => {
 	return (
 		<>
-			<UkazatelPokroku barva="blue" stav={10} />
-			<UkazatelPokroku barva="green" stav={20} />
-			<UkazatelPokroku barva="purple" stav= {40} />
+			<UkazatelPokroku barva="blue" stav={10}/>
+			<UkazatelPokroku barva="green" stav={20}/>
+			<UkazatelPokroku barva="purple" stav={30}/>
 		</>
 	)
 }
+
+//verze 2 - delší
+// const UkazatelPokroku = ({ barva, stav }) => {
+// 	const [zmenaBarvy, setZmenaBarvy] = useState(barva);
+// 	const [state, setState] = useState(stav)
+
+// 	const handleClick = () => {
+// 		setState(state + 10 );
+// 		if(state >= '100') {
+// 			setState('100');
+// 		}
+// 		console.log(state)
+// 	}
+	
+
+// 	return (
+// 		<div className="ukazatel-uspechu">
+// 			<div className="ukazatel-uspechu__ramecek">
+// 				<div
+// 					className="ukazatel-uspechu__postup"
+// 					style={{
+// 						width: state + '%',
+// 						backgroundColor: barva
+// 					}}
+// 				></div>
+// 			</div>
+// 			<button onClick={handleClick}>postoupit o 10 %</button>
+// 		</div>
+// 	)
+// }
+
+// const Uloha7 = () => {
+// 	return (
+// 		<>
+// 			<UkazatelPokroku barva="blue" stav={10} />
+// 			<UkazatelPokroku barva="green" stav={20}/>
+// 			<UkazatelPokroku barva="purple" stav={30}/>
+// 		</>
+// 	)
+// }
 
 export default Uloha7;
